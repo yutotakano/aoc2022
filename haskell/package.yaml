@@ -1,0 +1,50 @@
+name:                aoc2022-hs
+version:             0.1.0.0
+github:              "yutotakano/aoc2022"
+license:             BSD3
+author:              "Yuto Takano"
+maintainer:          "moa17stock@gmail.com"
+copyright:           "2022 Yuto Takano"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+description:         AoC 2022 solutions in Haskell.
+
+dependencies:
+- base >= 4.7 && < 5
+- advent-of-code-api == 0.2.8.1
+- containers
+- time
+- template-haskell
+- text
+- unordered-containers
+- split
+- extra
+- QuickCheck
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+executables:
+  aoc2022-hs-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - aoc2022-hs
