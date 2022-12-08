@@ -8,7 +8,6 @@ copyright:           "2022 Yuto Takano"
 
 extra-source-files:
 - README.md
-- CHANGELOG.md
 
 description:         AoC 2022 solutions in Haskell.
 
@@ -23,6 +22,7 @@ dependencies:
 - split
 - extra
 - QuickCheck
+- repa
 
 ghc-options:
 - -Wall
