@@ -16,6 +16,8 @@ import Day01 qualified
 import Day02 qualified
 import Day03 qualified
 import Day04 qualified
+import Day05 qualified
+import Day06 qualified
 
 -- | Dynamically generate pattern matches for the day and part 1/2 from the
 -- imported modules beginning with "Day".
