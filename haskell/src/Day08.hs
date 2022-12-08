@@ -9,7 +9,6 @@ import Data.Text qualified as T
 import Data.Char
 import Data.Array.Repa as R
 import Prelude as P
-import Debug.Trace
 
 mapX :: (Int -> Int) -> DIM2 -> DIM2
 mapX f sh
@@ -24,8 +23,7 @@ mapY f sh
     | otherwise = error "Shape of non-DIM2 passed in!"
 
 takeWhileAndNext :: (a -> Bool) -> [a] -> [a]
-takeWhileAndNext cond [] = []
-takeWhileAndNext cond (x:xs) = if cond x then (x:(takeWhileAndNext cond xs)) else x:[]
+takeWhileAndNext cond = (\(firstPart, secondPart) -> firstPart <> (take 1 secondPart)) . span cond
 
 part1 :: T.Text -> T.Text
 part1 inputs =
