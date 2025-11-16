@@ -80,7 +80,7 @@ part2 inputs =
         totalDirSizes :: Tree (T.Text, Int) -> Tree (T.Text, Int)
         totalDirSizes (Node (name, size) children) = Node (name, size + sum (map (snd . rootLabel . totalDirSizes) children)) $ map totalDirSizes children
 
-        deletionNeeded = 30000000 - (70000000 - (snd $ rootLabel $ totalDirSizes dirListingSizes))
+        deletionNeeded = 30000000 - (70000000 - snd (rootLabel $ totalDirSizes dirListingSizes))
 
     in
         T.pack $ show $ minimum $ foldr (\(_, size) xs -> if size >= deletionNeeded then (size : xs) else xs) [] $ totalDirSizes dirListingSizes

@@ -46,7 +46,7 @@ main = do
     let opts = AoCOpts sessionToken year (Just "cache") False 3000000
 
     -- Fetch the inputs, and run!
-    inputs <- runAoC_ opts $ AoCInput (mkDay_ $ toInteger $ dayOfMonth)
+    inputs <- runAoC_ opts $ AoCInput (mkDay_ $ toInteger dayOfMonth)
     putStrLn . T.unpack $ run dayOfMonth 1 inputs
     putStrLn . T.unpack $ run dayOfMonth 2 inputs
 

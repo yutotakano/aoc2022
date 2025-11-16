@@ -21,7 +21,7 @@ mkRun = do
     -- Find only the modules that start with Day. We assume those contain
     -- part1 and part2 functions.
     let implementedDays = map (\x -> (x, read $ drop 3 x :: Integer))
-            $ filter ((== "Day") . (take 3)) moduleNames
+            $ filter ((== "Day") . take 3) moduleNames
 
     -- Create variables for pattern matching on
     day <- newName "day"

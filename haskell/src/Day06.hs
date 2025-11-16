@@ -16,7 +16,7 @@ findMarkerLoc :: Int -> String -> Int -> Int
 findMarkerLoc markerSize remaining counter
     | length remaining < markerSize = error "EOL reached, no start marker found"
     | potentialMarker <- take markerSize remaining
-    , Set.size (Set.fromList potentialMarker) == markerSize = (counter + markerSize)
+    , Set.size (Set.fromList potentialMarker) == markerSize = counter + markerSize
     | otherwise = findMarkerLoc markerSize (tail remaining) (counter + 1)
 
 part1 :: T.Text -> T.Text

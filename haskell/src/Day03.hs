@@ -13,7 +13,7 @@ import Data.List.Split
 -- | Calculate the priority for a given item.
 priority :: Char -> Int
 priority c
-    | p <- (fromEnum c - 96)
+    | p <- fromEnum c - 96
     , inRange (1, 26) p = p
     | p <- fromEnum c - 38
     , inRange (27, 52) p = p

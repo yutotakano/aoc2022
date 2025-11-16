@@ -40,7 +40,7 @@ part1 input =
     let
         matches = filter (not . T.null) $ T.split (== '\n') input
         scores = flip map matches $ \match ->
-            score (parseOpponent $ T.head match) (parseOwn $ T.last $ match)
+            score (parseOpponent $ T.head match) (parseOwn $ T.last match)
     in
         T.pack $ show (sum scores :: Int)
 
@@ -71,6 +71,6 @@ part2 input =
             let
                 opponentMove = parseOpponent (T.head match)
             in
-                score opponentMove (counterMove opponentMove $ parseResult $ T.last $ match)
+                score opponentMove (counterMove opponentMove $ parseResult $ T.last match)
     in
         T.pack $ show (sum scores :: Int)

@@ -23,7 +23,7 @@ mapY f sh
     | otherwise = error "Shape of non-DIM2 passed in!"
 
 takeWhileAndNext :: (a -> Bool) -> [a] -> [a]
-takeWhileAndNext cond = (\(firstPart, secondPart) -> firstPart <> (take 1 secondPart)) . span cond
+takeWhileAndNext cond = (\(firstPart, secondPart) -> firstPart <> take 1 secondPart) . span cond
 
 part1 :: T.Text -> T.Text
 part1 inputs =
@@ -33,7 +33,7 @@ part1 inputs =
         gridWidth = length $ head intGrid
         gridSize = ix2 gridWidth gridHeight
         intArray = fromListUnboxed gridSize $ concat intGrid
-        visibleArray = fromFunction gridSize $ \ix -> or $ P.map (foldAllS (&&) True . R.map (\x -> x < (intArray ! ix)))
+        visibleArray = fromFunction gridSize $ \ix -> any (foldAllS (&&) True . R.map (\x -> x < (intArray ! ix)))
             [ extract (mapX (const 0) ix) (mapY (const 1) ix) intArray
             , extract (mapY (const 0) ix) (mapX (const 1) ix) intArray
             , extract (mapX (+ 1) ix) (shapeOfList $ (\[x, _] -> [(gridWidth - x - 1), 1]) $ listOfShape $ ix) intArray
