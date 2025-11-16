@@ -23,6 +23,8 @@ dependencies:
 - extra
 - QuickCheck
 - repa
+- microlens
+- microlens-th
 
 ghc-options:
 - -Wall

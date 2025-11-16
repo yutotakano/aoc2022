@@ -32,6 +32,7 @@ library
       Day06
       Day07
       Day08
+      Day09
   other-modules:
       Paths_aoc2022_hs
   hs-source-dirs:
@@ -43,6 +44,8 @@ library
     , base >=4.7 && <5
     , containers
     , extra
+    , microlens
+    , microlens-th
     , repa
     , split
     , template-haskell
@@ -66,6 +69,8 @@ executable aoc2022-hs-exe
     , base >=4.7 && <5
     , containers
     , extra
+    , microlens
+    , microlens-th
     , repa
     , split
     , template-haskell
