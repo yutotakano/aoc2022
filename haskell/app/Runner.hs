@@ -1,5 +1,3 @@
-{-# LANGUAGE ImportQualifiedPost #-}
-{-# LANGUAGE TemplateHaskell #-}
 module Runner
     ( mkRun
     ) where
